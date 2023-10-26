@@ -196,21 +196,25 @@ function Classic(args) {
 
    return (
       <>
-         <div className="header w-full">
-            <div className="container">
-               <div className="header-logo">
-                  {/* <span className="material-icons-outlined header-logo-icon">
-                     mode_of_travel</span> */}
+         {/* <div className="header w-full"> */}
+         <div className="h-14 flex md:h-20 border-b w-full">
+            {/* <div className="container"> */}
+            <div className="w-full px-5 md:px-0 md:w-11/12 flex m-auto items-center justify-between">
+
+               {/* <div className="header-logo"> */}
+               <div className="text-xl font-medium">
                   {args?.allHotelDetails?.logo !== '' ? <img src={args?.allHotelDetails?.logo} alt="logo" className='h-full w-full' /> : <></>}
                   <span className='text-sky-600'>{args?.allHotelDetails?.property_name}
                   </span>
                </div>
 
-               <div className="menu-toggle">
+               {/* <div className="menu-toggle"> */}
+               <div className="cursor-pointer lg:hidden">
                   <button onClick={() => setSmSidebar(!smSidebar)} > <span className="material-icons-outlined"> menu </span></button>
                </div>
 
-               <ul className="header-menu">
+               {/* <ul className="header-menu"> */}
+               <ul className="hidden lg:flex">
                   <select onChange={(e) => (changeLanguage(e.target.value))}
                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-cyan-600 focus:border-cyan-600 block w-32 py-1 px-2">
                      <option value="en">English</option>
@@ -219,39 +223,41 @@ function Classic(args) {
                   </select>
 
                   <a href="#home" onClick={() => { getIPData("Anchor tag Home from header", "/home") }}
-                     className="header-menu-item"
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
                   >{language?.home}
                   </a>
                   <a onClick={() => { getIPData("Anchor tag About from header", "/about") }}
                      href="#about"
-                     className="header-menu-item"
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
                   >{language?.about}</a>
                   <a onClick={() => { getIPData("Anchor tag Gallery from header", "/gallery") }}
                      href="#gallery"
-                     className="header-menu-item"
-                  >{language?.gallery}</a
-                  >
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
+                  >{language?.gallery}</a>
 
                   <a
                      href="#rooms" onClick={() => { getIPData("Anchor tag Rooms from header", "/rooms") }}
-                     className="header-menu-item"
-                  >{language?.rooms}</a
-                  >
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
+                  >{language?.rooms}</a>
                   <a
                      href="#amenities" onClick={() => { getIPData("Anchor tag Amenities from header", "/amenities") }}
-                     className="header-menu-item"
-                  >{language?.amenities}</a
-                  >
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
+                  >{language?.amenities}</a>
                   {args?.allPackages?.packages !== undefined ? <a
                      href="#packages" onClick={() => { getIPData("Anchor tag Packages from header", "/packages") }}
-                     className="header-menu-item"
-                  >{language?.packages}</a
-                  > : <></>}
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
+                  >{language?.packages}</a> : <></>}
                   <a
                      href="#contactus" onClick={() => { getIPData("Anchor tag Contact us from header", "/contactus") }}
-                     className="header-menu-item"
-                  >{language?.contactus}</a
-                  >
+                     // className="header-menu-item"
+                     className="text-sm text-slate-500 ml-6 py-3"
+                  >{language?.contactus}</a>
                   <div className="header-menu-copyright">Made with Tailwind CSS</div>
                </ul>
 
@@ -319,23 +325,43 @@ function Classic(args) {
             </div>
          </div>
 
-         <div className="tour container">
-            <div className="tour-head">
-               <div id="home" className="tour-head-left">
-                  <div className="tour-title">
+
+
+
+
+         {/* <div className="tour container"> */}
+         <div className="px-5 md:mx-10 lg:mx-16">
+
+            {/* <div className="tour-head"> */}
+            <div className="my-6 lg:my-12 flex">
+
+               {/* <div id="home" className="tour-head-left"> */}
+               <div id="home">
+
+                  {/* <div className="tour-title"> */}
+                  <div className="font-semibold text-slate-600 text-xl md:text-3xl">
+
                      <div className={visible === 0 ? 'block w-32 mb-2' : 'hidden'}><Headloader /></div>
                      <div className={visible === 1 ? 'block' : 'hidden'}>
                         {args?.allHotelDetails?.description_title}</div>
                   </div>
                   <div className={visible === 0 ? 'block w-64' : 'hidden'}><SubHeading /></div>
                   <div className={visible === 1 ? 'block' : 'hidden'}>
-                     <div className="tour-overview">
-                        <div className="tour-overview-item">
 
-                           {args?.allHotelDetails?.property_category} {language?.in} <span>{args?.allHotelDetails?.address?.[i]?.address_city}</span>
+                     {/* <div className="tour-overview "> */}
+                     <div className="mt-4 flex text-sm text-slate-400 ">
+
+                        {/* <div className="tour-overview-item"> */}
+                        <div className="relative pr-6 md:text-base">
+                           {args?.allHotelDetails?.property_category} {language?.in} <span className='text-slate-600 font-semibold'>{args?.allHotelDetails?.address?.[i]?.address_city}</span>
                         </div>
-                        <div className="tour-overview-item"><span>{args?.allHotelDetails?.star_rating} {language?.star}</span> {language?.accomodation}</div>
-                        <div className="tour-overview-item">
+
+                        {/* <div className="tour-overview-item "> */}
+                        <div className="relative pr-6 md:text-base">
+                           <span className='text-slate-600 font-semibold'>{args?.allHotelDetails?.star_rating} {language?.star}</span> {language?.accomodation}</div>
+
+                        {/* <div className="tour-overview-item"> */}
+                        <div className="relative pr-6 md:text-base">
                            <span className='-mt-0.5 mr-1'>
                               <StarRatings
                                  rating={averageRating}
@@ -352,12 +378,17 @@ function Classic(args) {
             </div>
 
             {/* Body */}
-            <div className="tour-wrapper">
-               <div className="tour-content">
+            {/* <div className="tour-wrapper"> */}
+            <div className="flex flex-wrap items-start lg:flex-nowrap">
+
+               {/* <div className="tour-content"> */}
+               <div className="w-full lg:w-7/12">
                   {/* Slider */}
                   <div className={visible === 0 ? 'block w-32 mb-2' : 'hidden'}><ImageLoader /></div>
                   <div className={visible === 1 ? 'block' : 'hidden'}>
-                     <div className="tour-hero">
+
+                     {/* <div className="tour-hero"> */}
+                     <div className="mb-12">
                         <Swiper
                            centeredSlides={true}
                            autoplay={{
@@ -382,16 +413,23 @@ function Classic(args) {
                         </Swiper>
                      </div>
 
-                     <div className="tour-content-block">
-                        <div className="tour-description">
+                     {/* <div className="tour-content-block"> */}
+                     <div className="mt-10 border-b ">
 
+                        {/* <div className="tour-description"> */}
+                        <div className="text-sm text-slate-500 lg:text-base ">
                            {args?.allHotelDetails?.description_body}
                         </div>
-                     </div></div>
+                     </div>
+                  </div>
 
                   {/* Gallery */}
-                  <div id="gallery" className="tour-content-block">
-                     <div className="tour-content-title">{language?.gallery}</div>
+                  {/* <div id="gallery" className="tour-content-block"> */}
+                  <div id="gallery" className="mt-10 border-b pb-10">
+
+                     {/* <div className="tour-content-title">{language?.gallery}</div> */}
+                     <div className="mb-6 text-slate-600 text-lg font-semibold lg:text-2xl">{language?.gallery}</div>
+
                      <div className="relative overflow-hidden">
                         <div className={visible === 0 ? 'block  mb-2' : 'hidden'}><GallerySlider /></div>
                         <div className={visible === 1 ? 'block' : 'hidden'}>
@@ -439,10 +477,16 @@ function Classic(args) {
                   </div>
 
                   {/* About */}
-                  <div id="about" className="tour-content-block">
-                     <div className="tour-content-title mb-8">
-                        {language?.about}</div>
+                  {/* <div id="about" className="tour-content-block"> */}
+                  <div id="about" className="mt-10 border-b pb-10">
+
+                     {/* <div className="tour-content-title mb-8"> */}
+                     <div className="text-lg lg:text-2xl font-semibold text-slate-600 mb-8">
+                        {language?.about}
+                     </div>
+
                      <div className="tour-itinerary">
+                        {/* <div className=""> */}
                         <div className="accordion">
 
                            {/* Rooms */}
@@ -1071,31 +1115,47 @@ function Classic(args) {
                   </div>
 
                   {/*  Reviews */}
-                  <div className="tour-content-block">
-                     <div className="tour-content-title">{language?.customer} {language?.reviews}</div>
-                     <div className="tour-reviews">
-                        <div className="tour-reviews-feedback">
+                  {/* <div className="tour-content-block"> */}
+                  <div className="mt-10 border-b pb-10">
+
+                     {/* <div className="tour-content-title">{language?.customer} {language?.reviews}</div> */}
+                     <div className="mb-6 text-slate-600 text-lg md:text-2xl font-semibold">{language?.customer} {language?.reviews}</div>
+
+                     {/* <div className="tour-reviews"> */}
+                     <div className="flex flex-col lg:flex-row">
+
+                        {/* <div className="tour-reviews-feedback"> */}
+                        <div className="bg-white border rounded-t-lg w-full  lg:w-3/5 lg:mr-8  lg:rounded-lg ">
                            <Marquee duration={10000} height="370px" axis="Y" reverse={true}>
                               {args?.allHotelDetails?.Reviews?.map((item, idx) => {
                                  return (
 
-                                    <div className="tour-reviews-feedback-item" key={idx}>
+                                    <div className="flex overflow-hidden items-center relative bg-transparent h-96 w-full" key={idx} >
+                                       {/* <div className="tour-reviews-feedback-item" key={idx}>  */}
+
                                        <div className="tour-reviews-feedback-content">
 
-                                          <div className="tour-reviews-feedback-content-inner">
-                                             <div className="tour-reviews-feedback-title">
+                                          {/* <div className="tour-reviews-feedback-content-inner"> */}
+                                          <div className="">
+
+                                             {/* <div className="tour-reviews-feedback-title"> */}
+                                             <div className="text-sm lg:text-base font-semibold">
+
                                                 <div className={visible === 0 ? 'block w-24 mb-2' : 'hidden'}><LineLoader /></div>
                                                 <div className={visible === 1 ? 'block' : 'hidden'}>
                                                    {item?.review_author}</div>
                                              </div>
-                                             <div className="tour-reviews-feedback-text">
+
+                                             {/* <div className="tour-reviews-feedback-text"> */}
+                                             <div className="text-xs lg:text-sm ">
                                                 <div className={visible === 0 ? 'block h-2 w-64 mb-6' : 'hidden'}><LineLoader /></div>
                                                 <div className={visible === 1 ? 'block' : 'hidden'}>
                                                    {item?.review_title}</div>
                                              </div>
                                           </div>
                                        </div>
-                                       <div className="tour-reviews-feedback-rating capitalize">{item?.review_rating}</div>
+                                       {/* <div className="tour-reviews-feedback-rating capitalize">{item?.review_rating}</div> */}
+                                       <div className="h-10 w-10 rounded-full text-center font-semibold text-sm capitalize">{item?.review_rating}</div>
                                     </div>
 
                                  )
@@ -1104,7 +1164,9 @@ function Classic(args) {
                            </Marquee>
                         </div>
 
-                        <div className="tour-reviews-overall">
+
+                        {/* <div className="relative flex w-full lg:w-2/5 lg:rounded-lg lg:border-t lg:bg-transparent bg-white items-center text-center text-slate-500  justify-center overflow-hidden rounded-b-lg border  border-t-0 p-10 "> */}
+                        <div className="tour-reviews-overall ">
                            <div className="tour-reviews-content">
                               <div className="tour-reviews-overall-title">
                                  {language?.overallrating}
@@ -1115,14 +1177,19 @@ function Classic(args) {
                               <div className="tour-reviews-overall-rating">{averageRating}</div>
                            </div>
                         </div>
+
+
+
+
                      </div>
                   </div>
 
                   {/*call us banner */}
                   <Banner args={args} language={language} visible={visible} />
-
-
                </div>
+
+
+
                {/* Booking form  */}
                <div className={`tour-sidebar ${Color?.light?.whitebackground}`}>
                   {/* <div className="tour-receipt">
@@ -1293,8 +1360,16 @@ function Classic(args) {
 
             </div>
          </div>
+
+
+
+
+
+
+
+
          {/* Footer */}
-         <footer className="bg-gray-900 lg:mt:8 py-6">
+         <footer footer className="bg-gray-900 lg:mt:8 py-6" >
             <div className="md:flex md:justify-between mx-6">
                <div className="mb-6 md:mb-0">
                   <div className="header-logo lg:px-8 md:px-8 px-20">
