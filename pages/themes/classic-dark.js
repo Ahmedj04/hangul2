@@ -98,8 +98,8 @@ function ClassicDark(args) {
       setVisible(1);
    }, [args?.language])
 
-   
- useEffect(() => {
+
+   useEffect(() => {
       getData();
    }, [])
 
@@ -132,21 +132,21 @@ function ClassicDark(args) {
    }
 
    const fetchHotelDetails = async () => {
-      try{
-         setPrivacyPolicy(args?.allHotelDetails?.privacy_conditions[0]?.privacy_policy)
-      setTermsConditions(args?.allHotelDetails?.privacy_conditions[0]?.terms_condition)
-      setAllHotelDetails(args?.allHotelDetails);
       try {
-         setCountry(GlobalData.CountryData.filter(i => i?.country_code === args?.allHotelDetails?.address[0]?.address_country)[0]?.country_name)
+         setPrivacyPolicy(args?.allHotelDetails?.privacy_conditions[0]?.privacy_policy)
+         setTermsConditions(args?.allHotelDetails?.privacy_conditions[0]?.terms_condition)
+         setAllHotelDetails(args?.allHotelDetails);
+         try {
+            setCountry(GlobalData.CountryData.filter(i => i?.country_code === args?.allHotelDetails?.address[0]?.address_country)[0]?.country_name)
+         }
+         catch (ex) {
+            setCountry(args?.allHotelDetails?.address[0]?.address_country)
+         }
+         calculateTotalRating(args?.allHotelDetails?.Reviews);
+         setVisible(1)
       }
-      catch (ex) {
-         setCountry(args?.allHotelDetails?.address[0]?.address_country)
-      }
-      calculateTotalRating(args?.allHotelDetails?.Reviews);
-      setVisible(1)
-      }
-      catch(ex){}
-      
+      catch (ex) { }
+
    }
 
    function calculateTotalRating(reviews) {
@@ -250,8 +250,8 @@ function ClassicDark(args) {
                      <a onClick={() => { getIPData("Anchor tag Contact us from header", "/contactus") }}
                         href="#contactus"
                         className="header-menu-item"
-                     ><span className='text-white hover:text-gray-400'>{language?.contactus}</span></a
-                     >
+                     ><span className='text-white hover:text-gray-400'>{language?.contactus}</span>
+                     </a>
                      <div className="header-menu-copyright"><span className='text-white hover:text-gray-200'>Made with Tailwind CSS</span></div>
                   </ul>
 
@@ -528,7 +528,7 @@ function ClassicDark(args) {
                                                                <Carousel.Item key={index} >
                                                                   <img width="100%"
                                                                      onClick={() => activateImagesSlider(index, resource?.room_images)}
-                                                                     className="rounded" style={{ height: "160px", marginBottom: "10px" }} 
+                                                                     className="rounded" style={{ height: "160px", marginBottom: "10px" }}
                                                                      alt="room_images"
                                                                      src={room_resource?.image_link} />
                                                                   <span className='text-gray-400' >{room_resource?.image_title}</span>
@@ -554,7 +554,7 @@ function ClassicDark(args) {
                                                          {language?.booknow}
                                                       </button></div>
                                                 </div> */}
-                                                </div>
+                                             </div>
                                           </div>)
                                     })}
 
@@ -572,7 +572,7 @@ function ClassicDark(args) {
                                     </button></div>
                                  <div className={amenity === true ? 'tour-content-block1 ' : 'hidden'}>
                                     <div className="grid ml-2 mb-8 grid-flow-row-dense lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-3">
-                                    
+
                                        {args?.services?.map((item, idx) => {
                                           return (
                                              <>
@@ -1122,7 +1122,7 @@ function ClassicDark(args) {
                      </div>
 
                      {/*call us banner */}
-                     <Banner args={args} language={language} visible={visible}/>
+                     <Banner args={args} language={language} visible={visible} />
 
                   </div>
                   {/* booking form content  */}
@@ -1296,7 +1296,7 @@ function ClassicDark(args) {
 
 
                      {/* <BookingForm color={Color?.dark}/> */}
-                     <Contactus color={Color?.dark} language={language} property_id={args?.allHotelDetails?.property_id}/>
+                     <Contactus color={Color?.dark} language={language} property_id={args?.allHotelDetails?.property_id} />
                   </div>
 
                </div>
@@ -1311,10 +1311,10 @@ function ClassicDark(args) {
                      {/* <span className="material-icons-outlined header-logo-icon">
                         mode_of_travel</span> */}
                      {args?.allHotelDetails?.logo !== '' ? <img src={args?.allHotelDetails?.logo} alt="logo" className='h-full w-full' /> : <></>}
-                     
+
                   </div>
                   <div className='flex mt-1 flex-col lg:pl-0 pl-14 md:pl-0 capitalize'>
-                  <div className='lg:px-20 px-16 text-sky-600 text-xl'>
+                     <div className='lg:px-20 px-16 text-sky-600 text-xl'>
                         {args?.allHotelDetails?.property_name}</div>
                      <span className='lg:px-20 px-16 text-sm text-white'>
                         <div className={visible === 0 ? 'block h-2 w-32 mb-8' : 'hidden'}><LineLoader /></div>
@@ -1401,7 +1401,7 @@ function ClassicDark(args) {
             </div>
          </footer>
          <div className={showModalTC === 1 ? "block" : "hidden"}>
-           
+
             <Modal
                title={`Terms & Conditions`}
                description={termsConditions}

@@ -599,9 +599,9 @@ function Classic(args) {
                                                       }), getSingleSection(open?.view, resource?.room_name, "Rooms")
                                                    }}
                                                       className='bg-green-600 sm:inline-flex text-white
-            focus:ring-4 focus:ring-green-200 font-semibold
-             rounded-lg text-sm px-4 py-2.5 text-center 
-                ease-linear transition-all duration-150'>
+                                                                  focus:ring-4 focus:ring-green-200 font-semibold
+                                                                  rounded-lg text-sm px-4 py-2.5 text-center 
+                                                                     ease-linear transition-all duration-150'>
                                                       {language?.booknow}
                                                    </button></div>
                                              </div> */}
@@ -1080,9 +1080,6 @@ function Classic(args) {
                                                                </p>
                                                             </div>
                                                          </div>
-
-
-
                                                       </div>
                                                    </div>
                                                 </div>
@@ -1097,10 +1094,7 @@ function Classic(args) {
                                                             base_rate_currency: resource?.base_rate_currency
                                                          }); getSingleSection(open?.view, resource?.package_name, "Packages")
                                                       }}
-                                                         className='bg-green-600 sm:inline-flex text-white
-            focus:ring-4 focus:ring-green-200 font-semibold 
-             rounded-lg text-sm px-4 py-2.5 text-center 
-                ease-linear transition-all duration-150'>
+                                                         className='bg-green-600 sm:inline-flex text-white focus:ring-4 focus:ring-green-200 font-semibold rounded-lg text-sm px-4 py-2.5 text-center ease-linear transition-all duration-150'>
                                                          {language?.booknow}
                                                       </button></div>
                                                 </div></div>
@@ -1164,17 +1158,24 @@ function Classic(args) {
                            </Marquee>
                         </div>
 
+                        {/* <div className="tour-reviews-overall"> */}
+                        <div className="tour-review-overall relative flex w-full items-center justify-center overflow-hidden rounded-b-lg border border-t-0 border-solid border-gray-300 bg-white p-10 text-center text-gray-400 lg:w-2/5 lg:rounded-lg lg:border-t lg:bg-transparent">
+                           <div>
 
-                        {/* <div className="relative flex w-full lg:w-2/5 lg:rounded-lg lg:border-t lg:bg-transparent bg-white items-center text-center text-slate-500  justify-center overflow-hidden rounded-b-lg border  border-t-0 p-10 "> */}
-                        <div className="tour-reviews-overall ">
-                           <div className="tour-reviews-content">
-                              <div className="tour-reviews-overall-title">
+                              {/* <div className="tour-reviews-overall-title"> */}
+                              <div className="text-xl font-semibold opacity-40 lg:text-2xl">
                                  {language?.overallrating}
                               </div>
-                              <div className="tour-reviews-overall-text">
+
+                              {/* <div className="tour-reviews-overall-text"> */}
+                              <div className="mt-5 text-2xl font-semibold lg:text-4xl">
                                  {language?.excellent}
                               </div>
-                              <div className="tour-reviews-overall-rating">{averageRating}</div>
+
+                              {/* <div className="tour-reviews-overall-rating"> */}
+                              <div className="mt-6 text-4xl font-semibold lg:text-6xl">
+                                 {averageRating}
+                              </div>
                            </div>
                         </div>
 
@@ -1191,7 +1192,8 @@ function Classic(args) {
 
 
                {/* Booking form  */}
-               <div className={`tour-sidebar ${Color?.light?.whitebackground}`}>
+               {/* <div className={`tour-sidebar ${Color?.light?.whitebackground}`}> */}
+               <div className={`relative top-8 z-20 mb-10 w-full lg:mb-0 lg:sticky lg:ml-8  lg:w-5/12 ${Color?.light?.whitebackground}`}>
                   {/* <div className="tour-receipt">
                      <div className="tour-receipt-head">
                         <div className="tour-amount">
@@ -1372,7 +1374,10 @@ function Classic(args) {
          <footer footer className="bg-gray-900 lg:mt:8 py-6" >
             <div className="md:flex md:justify-between mx-6">
                <div className="mb-6 md:mb-0">
-                  <div className="header-logo lg:px-8 md:px-8 px-20">
+
+                  {/* <div className="header-logo lg:px-8 md:px-8 px-20"> */}
+                  <div className="flex select-none items-center text-lg font-medium  lg:px-8 md:px-8 px-20">
+
                      {/* <span className="material-icons-outlined header-logo-icon">
                    mode_of_travel</span> */}
                      {args?.allHotelDetails?.logo !== '' ? <img src={args?.allHotelDetails?.logo} alt="logo" className='h-full w-full' /> : <></>}
